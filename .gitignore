@@ -1,5 +1,6 @@
 composer.phar
 config/bolt/*_local.yaml
+public/assets
 
 ### Uploads ###
 # /public/files/*
