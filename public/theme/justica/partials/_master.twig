@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="{{ htmllang() }}">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta
+		http-equiv="X-UA-Compatible" content="ie=edge">
+		{# make sure we always display a proper title: The record's title if there is one, appended with the
+						    sitename. If there is no title, we append the sitename with the payoff, if there is one. #}
+		<title>
+			{%- if record|default and record.title -%}
+				{{- record.title ~ ' | ' -}}
+			{%- endif -%}
+			{{- config.get('general/sitename') -}}
+			{%- if record|default == null and config.has('general/payoff') -%}
+				{{- ' | ' ~ config.get('general/payoff') -}}
+			{%- endif -%}
+		</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta
+		name="author" content="">
+
+		<!-- CSS Files -->
+		<link id="bootstrap" href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>
+		<link id="bootstrap-grid" href="{{asset('css/bootstrap-grid.min.css')}}" rel="stylesheet" type="text/css"/>
+		<link id="bootstrap-reboot" href="{{asset('css/bootstrap-reboot.min.css')}}" rel="stylesheet" type="text/css"/>
+		<link href="{{asset('css/animate.css')}}" rel="stylesheet" type="text/css"/>
+		<link href="{{asset('css/owl.carousel.css')}}" rel="stylesheet" type="text/css"/>
+		<link href="{{asset('css/owl.theme.css')}}" rel="stylesheet" type="text/css"/>
+		<link href="{{asset('css/owl.transitions.css')}}" rel="stylesheet" type="text/css"/>
+		<link href="{{asset('css/magnific-popup.css')}}" rel="stylesheet" type="text/css"/>
+		<link href="{{asset('css/jquery.countdown.css')}}" rel="stylesheet" type="text/css"/>
+		<link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css"/>
+		<!-- color scheme -->
+		<link id="colors" href="{{asset('css/colors/scheme-01.css')}}" rel="stylesheet" type="text/css"/>
+		<link	href="{{asset('css/coloring.css')}}" rel="stylesheet" type="text/css"/>
+		<!-- RS5.0 Stylesheet -->
+		<link rel="stylesheet" href="{{asset('revolution/css/settings.css')}}" type="text/css">
+		<link rel="stylesheet" href="{{asset('revolution/css/layers.css')}}" type="text/css">
+		<link rel="stylesheet" href="{{asset('revolution/css/navigation.css')}}" type="text/css">
+
+	</head>
+
+	<body>
+    <div id="wrapper">
+      {# {% include 'partials/_navigation.twig' %} #}
+
+      {% block main %}
+        (This is
+        <code>block main</code>)
+      {% endblock main %}
+
+		  {# {% include 'partials/_footer.twig' %} #}
+
+      <!-- Javascript Files
+      ================================================== -->
+      <script src="{{asset('js/jquery.min.js')}}"></script>
+      <script src="{{asset('js/bootstrap.min.js')}}"></script>
+      <script src="{{asset('js/wow.min.js')}}"></script>
+      <script src="{{asset('js/jquery.isotope.min.js')}}"></script>
+      <script src="{{asset('js/easing.js')}}"></script>
+      <script src="{{asset('js/owl.carousel.js')}}"></script>
+      <script src="{{asset('js/validation.js')}}"></script>
+      <script src="{{asset('js/jquery.magnific-popup.min.js')}}"></script>
+      <script src="{{asset('js/enquire.min.js')}}"></script>
+      <script src="{{asset('js/jquery.stellar.min.js')}}"></script>
+      <script src="{{asset('js/jquery.plugin.js')}}"></script>
+      <script src="{{asset('js/typed.js')}}"></script>
+      <script src="{{asset('js/jquery.countTo.js')}}"></script>
+      <script src="{{asset('js/jquery.countdown.js')}}"></script>
+      <script src="{{asset('js/typed.js')}}"></script>
+      <script src="{{asset('js/designesia.js')}}"></script>
+      <!-- RS5.0 Core JS Files -->
+      <script type="text/javascript" src="{{asset('revolution/js/jquery.themepunch.tools.min.js?rev=5.0')}}"></script>
+      <script type="text/javascript" src="{{asset('revolution/js/jquery.themepunch.revolution.min.js?rev=5.0')}}"></script>
+      <!-- RS5.0 Extensions Files -->
+      <script type="text/javascript" src="{{asset('revolution/js/extensions/revolution.extension.video.min.js')}}"></script>
+      <script type="text/javascript" src="{{asset('revolution/js/extensions/revolution.extension.slideanims.min.js')}}"></script>
+      <script type="text/javascript" src="{{asset('revolution/js/extensions/revolution.extension.layeranimation.min.js')}}"></script>
+      <script type="text/javascript" src="{{asset('revolution/js/extensions/revolution.extension.navigation.min.js')}}"></script>
+      <script type="text/javascript" src="{{asset('revolution/js/extensions/revolution.extension.actions.min.js')}}"></script>
+      <script type="text/javascript" src="{{asset('revolution/js/extensions/revolution.extension.kenburn.min.js')}}"></script>
+      <script type="text/javascript" src="{{asset('revolution/js/extensions/revolution.extension.migration.min.js')}}"></script>
+      <script type="text/javascript" src="{{asset('revolution/js/extensions/revolution.extension.parallax.min.js')}}"></script>
+      <script>
+      jQuery(document).ready(function() {
+          // revolution slider
+          jQuery("#slider-revolution").revolution({
+              sliderType: "standard",
+              sliderLayout: "fullwidth",
+              delay: 5000,
+              navigation: {
+                  arrows: {
+                      enable: true
+                  },
+                  bullets: {
+                      enable: true,
+                      hide_onmobile: false,
+                      style: "hermes",
+                      hide_onleave: false,
+                      direction: "horizontal",
+                      h_align: "center",
+                      v_align: "bottom",
+                      h_offset: 20,
+                      v_offset: 30,
+                      space: 5,
+                  },
+
+              },
+              parallax: {
+                  type: "mouse",
+                  origo: "slidercenter",
+                  speed: 2000,
+                  levels: [2, 3, 4, 5, 6, 7, 12, 16, 10, 50],
+              },
+              responsiveLevels: [1920, 1380, 1240],
+              gridwidth: [1200, 1200, 940],
+              spinner: "off",
+              gridheight: 700,
+              disableProgressBar: "on"
+          });
+      });
+      </script>
+	  </div>
+  </body>
+
+</html>
