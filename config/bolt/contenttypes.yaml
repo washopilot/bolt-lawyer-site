@@ -188,7 +188,7 @@ blocks:
     title:
       type: text
       class: large
-      label: Title of this Block
+      label: Título de este bloque
       group: Block
     image:
       type: image
@@ -200,8 +200,46 @@ blocks:
     contentlink:
       type: text
       label: Link
-      placeholder: 'contentType/slug or https://example.org/'
-      postfix: "Use this to add a link for this Homepage. This could either be an 'internal' link like <tt>page//about</tt>, if you use a contentType/slug combination. Otherwise use a proper URL, like `https://example.org`."
+      placeholder: 'contentType/slug o https://example.org/'
+      postfix: "Use para añadir un enlace o hipervínculo. Puede ser un enlace 'interno' como <tt>page//about</tt>, si usted utiliza una combinación contentType/slug. De otra manera utilice un URL apropiado, tal como `https://example.org`."
+      fixture_format: '{url}'
+    slug:
+      type: slug
+      uses: [title]
+      group: Meta
+  show_on_dashboard: true
+  viewless: true
+  default_status: published
+  searchable: false
+  order: title
+  icon_many: 'fa:cubes'
+  icon_one: 'fa:cube'
+
+bloques:
+  name: Bloques
+  singular_name: Bloque
+  excerpt_format: '{teaser}'
+  fields:
+    title:
+      type: text
+      class: large
+      label: Título de este bloque
+      group: Bloque
+    image:
+      type: image
+      label: Imagen
+    teaser:
+      type: text
+      fixture_format: '{paragraph}'
+      label: Resumen
+    content:
+      type: textarea
+      label: Contenido
+    contentlink:
+      type: text
+      label: Link
+      placeholder: 'contentType/slug o https://example.org/'
+      postfix: "Use para añadir un enlace o hipervínculo. Puede ser un enlace 'interno' como <tt>page//about</tt>, si usted utiliza una combinación contentType/slug. De otra manera utilice un URL apropiado, tal como `https://example.org`."
       fixture_format: '{url}'
     slug:
       type: slug
@@ -353,7 +391,7 @@ sociales:
   fields:
     title:
       type: select
-      values: [facebook, instagram, youtube, linkedin, twitter]
+      values: [facebook, instagram, youtube, linkedin, twitter, pinterest]
       class: large
       label: Título de la red social
       group: Social
@@ -364,11 +402,39 @@ sociales:
       placeholder: 'https://example.org/'
       postfix: 'Use este campo para añadir los enlaces o URL de la red social seleccionada. Esta aparecerá con su ícono correspondiente en el encabezado y el pie de página.'
       fixture_format: '{url}'
-      default: "#"
+      default: '#'
       requiered: true
   show_on_dashboard: false
   viewless: true
   default_status: published
   searchable: false
   order: title
+  icon_many: 'fa:people-arrows'
+  icon_one: 'fa:people-arrows'
 
+presentaciones:
+  name: Presentaciones
+  singular_name: presentacion
+  fields:
+    title:
+      type: text
+      class: large
+      variant: inline
+      label: Título
+      group: Presentación
+    subtitle:
+      type: text
+      variant: inline
+      label: Subtítulo
+    image:
+      type: image
+      label: Imágen de fondo
+    content:
+      type: textarea
+  show_on_dashboard: false
+  viewless: true
+  default_status: published
+  searchable: false
+  order: title
+  icon_many: 'fa:balance-scale'
+  icon_one: 'fa:balance-scale'

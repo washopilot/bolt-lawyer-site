@@ -1,4 +1,4 @@
-{# The name of the `content` is passed in from the index, i.e. "blocks/hero" #}
+{# The name of the `content` is passed in from the index, i.e. "blocks/hero"
 {% setcontent block = (content) returnsingle %}
 
 <!--Hero-->
@@ -18,4 +18,33 @@
 			<img class="w-full md:w-4/5 z-50" style="border-radius: 1.5rem;" src="{{ block|thumbnail(600, 400, fit="crop") }}">
 		</div>
 	</div>
-</div>
+</div> #}
+
+{% setcontent heroes = "presentaciones" %}
+
+<!-- revolution slider begin -->
+<section id="section-slider" class="fullwidthbanner-container text-white" aria-label="section-slider">
+	<div id="slider-revolution">
+		<ul>
+			{% for hero in heroes %}
+				<li
+					data-transition="fade" data-slotamount="10" data-masterspeed="100" data-thumb="">
+					<!--  BACKGROUND IMAGE -->
+					<img alt="" class="rev-slidebg" data-bgposition="top center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" src="{{hero.image}}">
+					<div class="tp-caption big-s1" data-x="0" data-y="230" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_in="y:100px;opacity:0;s:500;e:Power2.easeOut;" data-transform_out="opacity:0;y:-100;s:200;e:Power2.easeInOut;" data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on">
+						<h3 class="id-color">{{hero.title}}</h3>
+					</div>
+					<div class="tp-caption very-big-white" data-x="0" data-y="280" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_in="y:100px;opacity:0;s:500;e:Power2.easeOut;" data-transform_out="opacity:0;y:-100;s:400;e:Power2.easeInOut;" data-start="600" data-splitin="none" data-splitout="none" data-responsive_offset="on">
+						<h1>{{hero.subtitle}}</h1>
+					</div>
+					<div class="tp-caption" data-x="0" data-y="360" data-width="480" data-height="none" data-whitespace="wrap" data-transform_in="y:100px;opacity:0;s:500;e:Power2.easeOut;" data-transform_out="opacity:0;y:-100;s:600;e:Power2.easeInOut;" data-start="700">
+						<p class="lead xs-hide">{{hero.content}}</p>
+					</div>
+					<div class="tp-caption" data-x="0" data-y="450" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_in="y:100px;opacity:0;s:500;e:Power2.easeOut;" data-transform_out="opacity:0;y:-100;s:800;e:Power2.easeInOut;" data-start="800">
+						<a class="btn-custom" href="features.html">Contáctanos</a>
+					</div>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+</section>

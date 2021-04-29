@@ -34,6 +34,11 @@
 
 </div> #}
 
+{% setcontent logo_light = "bloque/logotipo-claro" %}
+{% setcontent logo_dark = "bloque/logotipo-oscuro" %}
+{% setcontent phone = "bloque/telefono-de-contacto" %}
+{# {% dump(logo_dark) %} #}
+
 <!-- header begin -->
 	<header>
 		<div class="container"> <div class="row">
@@ -43,9 +48,14 @@
 						class="de-flex-col">
 						<!-- logo begin -->
 						<div id="logo">
-							<a href="index.html">
-								<img alt="" class="logo" src="images/logo-light.png"/>
-								<img alt="" class="logo-2" src="images/logo.png"/>
+							<a href="/">
+								{% if logo_light is not null %}
+									<img alt="logo_light.alt" class="logo" src="{{logo_light.image}}"/>
+								{% endif %}
+
+								{% if logo_dark is not null %}
+									<img alt="logo_dark.alt" class="logo-2" src="{{logo_dark.image}}"/>
+								{% endif %}
 							</a>
 						</div>
 						<!-- logo close -->
@@ -109,9 +119,12 @@
 					</div>
 					<div class="de-flex-col">
 						<div class="h-phone md-hide">
-							<span>Need&nbsp;Help?</span>
-							<i class="fa fa-phone"></i>
-							1 200 300 9000</div>
+							{% if phone is not null %}
+                <span>Necesita&nbsp;Ayuda?</span>
+                <i class="fa fa-phone"></i>
+                {{phone.content}}
+              {% endif %}
+						</div>
 						<span id="menu-btn"></span>
 					</div>
 				</div>
