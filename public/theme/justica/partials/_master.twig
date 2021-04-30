@@ -5,8 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta
 		http-equiv="X-UA-Compatible" content="ie=edge">
-		{# make sure we always display a proper title: The record's title if there is one, appended with the
-    sitename. If there is no title, we append the sitename with the payoff, if there is one. #}
+		{# make sure we always display a proper title: The record's title if there is one, appended with the sitename. If there is no title, we append the sitename with the payoff, if there is one. #}
 		<title>
 			{%- if record|default and record.title -%}
 				{{- record.title ~ ' | ' -}}
@@ -64,7 +63,7 @@
 		</div>
 
 		<!-- Javascript Files
-		      ================================================== -->
+		                      ================================================== -->
 		<script src="{{asset('js/jquery.min.js')}}"></script>
 		<script src="{{asset('js/bootstrap.min.js')}}"></script>
 		<script src="{{asset('js/wow.min.js')}}"></script>
@@ -95,56 +94,56 @@
 		<script type="text/javascript" src="{{asset('revolution/js/extensions/revolution.extension.parallax.min.js')}}"></script>
 		<script>
 			jQuery(document).ready(function () { // revolution slider
-jQuery("#slider-revolution").revolution({
-sliderType: "standard",
-sliderLayout: "fullwidth",
-delay: 5000,
-navigation: {
-arrows: {
-enable: true
-},
-bullets: {
-enable: true,
-hide_onmobile: false,
-style: "hermes",
-hide_onleave: false,
-direction: "horizontal",
-h_align: "center",
-v_align: "bottom",
-h_offset: 20,
-v_offset: 30,
-space: 5
-}
+      jQuery("#slider-revolution").revolution({
+      sliderType: "standard",
+      sliderLayout: "fullwidth",
+      delay: 5000,
+      navigation: {
+      arrows: {
+      enable: true
+      },
+      bullets: {
+      enable: true,
+      hide_onmobile: false,
+      style: "hermes",
+      hide_onleave: false,
+      direction: "horizontal",
+      h_align: "center",
+      v_align: "bottom",
+      h_offset: 20,
+      v_offset: 30,
+      space: 5
+      }
 
-},
-parallax: {
-type: "mouse",
-origo: "slidercenter",
-speed: 2000,
-levels: [
-2,
-3,
-4,
-5,
-6,
-7,
-12,
-16,
-10,
-50
-]
-},
-responsiveLevels: [
-1920, 1380, 1240
-],
-gridwidth: [
-1200, 1200, 940
-],
-spinner: "off",
-gridheight: 700,
-disableProgressBar: "on"
-});
-});
+      },
+      parallax: {
+      type: "mouse",
+      origo: "slidercenter",
+      speed: 2000,
+      levels: [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      12,
+      16,
+      10,
+      50
+      ]
+      },
+      responsiveLevels: [
+      1920, 1380, 1240
+      ],
+      gridwidth: [
+      1200, 1200, 940
+      ],
+      spinner: "off",
+      gridheight: 700,
+      disableProgressBar: "on"
+      });
+      });
 		</script>
 	</body>
 </html></div></body></html>
