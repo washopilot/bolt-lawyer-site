@@ -1,0 +1,44 @@
+{% setcontent block = (content) returnsingle %}
+{% setcontent records = (contenttype) limit 6 %}
+
+<section id="section-highlight" class="relative text-light" data-bgcolor="#111111">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-4">
+        <span class="p-title">{{ block | title }}</span
+        ><br />
+        <h2>{{ block.teaser }}</h2>
+        <div class="small-border sm-left"></div>
+      </div>
+      <div class="col-md-8">
+        <p>
+          {{ block | excerpt }}
+        </p>
+      </div>
+    </div>
+    <div class="spacer-double"></div>
+  </div>
+</section>
+<section class="no-top relative z1000">
+  <div class="container">
+    <div class="row mt-100 justify-content-center">
+      {% for record in records %}
+      <div class="col-md-4 mb-sm-30 wow fadeInRight" data-wow-delay=".2s">
+        <div class="mask rounded">
+          <div class="cover rounded">
+            <div class="c-inner">
+              <h3>
+                <i class="icofont-{{- record.icofont -}}"></i><span>{{ record | title }}</span>
+              </h3>
+              <p>{{ record | excerpt }}</p>
+              <div class="spacer20"></div>
+              <a href="#" class="btn-custom capsule">MÁS INFORMACIÓN</a>
+            </div>
+          </div>
+          <img src="{{ record|thumbnail(320, 280, fit="crop") }}" alt="" class="img-responsive" />
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

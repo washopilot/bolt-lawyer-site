@@ -441,3 +441,36 @@ presentaciones:
   order: title
   icon_many: 'fa:balance-scale'
   icon_one: 'fa:balance-scale'
+
+servicios:
+  name: Servicios
+  singular_name: Servicio
+  excerpt_format: '{content}'
+  fields:
+    title:
+      type: text
+      class: large
+      label: Título de este servicio
+      group: Servicio
+    image:
+      type: image
+      label: Imagen
+    teaser:
+      type: text
+      fixture_format: '{paragraph}'
+      label: Resumen
+    icofont:
+      type: text
+      label: Icono Tipo Icofont
+      postfix: |
+        En este apartado usted puede colocar el código correspondiente a un ícono "Icofont". Ejemplo: el ícono correspondiente a un edificio es `building`. Puede acceder a <a href="https://icofont.com/icons" target="_blank">ICONOS ICOFONT</a> para mayor información de los íconos disponibles. 
+    content:
+      type: textarea
+      label: Contenido
+  show_on_dashboard: true
+  viewless: true
+  default_status: published
+  searchable: false
+  order: title
+  icon_many: 'fa:concierge-bell'
+  icon_one: 'fa:concierge-bell'
