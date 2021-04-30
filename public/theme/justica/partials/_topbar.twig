@@ -1,21 +1,22 @@
 {% setcontent socials = "sociales" latest limit 6 %} {# -- TopBar -- #}
+
 <div id="topbar" class="topbar-noborder">
   <div class="container">
     <div class="topbar-left sm-hide">
       <span class="topbar-widget tb-social">
         {% for social in socials %}
         <a href="{{ social.contentlink }}" target="_blank">
-          {% if social.title == 'facebook' %}
+          {% if social|title == 'facebook' %}
           <i class="fa fa-facebook"></i>
-          {% elseif social.title == 'twitter' %}
+          {% elseif social|title == 'twitter' %}
           <i class="fa fa-twitter"></i>
-          {% elseif social.title == 'instagram' %}
+          {% elseif social|title == 'instagram' %}
           <i class="fa fa-instagram"></i>
-          {% elseif social.title == 'youtube' %}
+          {% elseif social|title == 'youtube' %}
           <i class="fa fa-youtube"></i>
-          {% elseif social.title == 'linkedin' %}
+          {% elseif social|title == 'linkedin' %}
           <i class="fa fa-linkedin"></i>
-          {% elseif social.title == 'pinterest' %}
+          {% elseif social|title == 'pinterest' %}
           <i class="fa fa-pinterest"></i>
           {% else %}
           <i class="fa fa-question"></i>
