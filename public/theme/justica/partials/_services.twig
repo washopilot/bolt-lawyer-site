@@ -1,5 +1,4 @@
-{% setcontent block = (content) returnsingle %}
-{% setcontent records = (contenttype) limit 6 %}
+{% setcontent block = (content) returnsingle %} {% setcontent records = (contenttype) limit 6 %}
 
 <section id="section-highlight" class="relative text-light" data-bgcolor="#111111">
   <div class="container">
@@ -23,7 +22,7 @@
   <div class="container">
     <div class="row mt-100 justify-content-center">
       {% for record in records %}
-      <div class="col-md-4 mb-sm-30 wow fadeInRight" data-wow-delay=".2s">
+      <div class="col-md-4 mb-sm-30 wow fadeInRight" data-wow-delay="{{ loop.index * 0.3 ~ 's'}}">
         <div class="mask rounded">
           <div class="cover rounded">
             <div class="c-inner">

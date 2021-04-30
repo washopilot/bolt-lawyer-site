@@ -463,7 +463,7 @@ servicios:
       type: text
       label: Icono Tipo Icofont
       postfix: |
-        En este apartado usted puede colocar el código correspondiente a un ícono "Icofont". Ejemplo: el ícono correspondiente a un edificio es `building`. Puede acceder a <a href="https://icofont.com/icons" target="_blank">ICONOS ICOFONT</a> para mayor información de los íconos disponibles. 
+        En este apartado usted puede colocar el código correspondiente a un ícono "Icofont". Por ejemplo: si desea visualizar el ícono de un edificio, su código es `building`. Puede acceder a <a href="https://icofont.com/icons" target="_blank">ICONOS ICOFONT</a> para mayor información de los íconos disponibles. 
     content:
       type: textarea
       label: Contenido
