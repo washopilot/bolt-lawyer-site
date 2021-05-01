@@ -235,12 +235,12 @@ bloques:
     content:
       type: textarea
       label: Contenido
-    contentlink:
-      type: text
-      label: Link
-      placeholder: 'contentType/slug o https://example.org/'
-      postfix: "Use para añadir un enlace o hipervínculo. Puede ser un enlace 'interno' como <tt>page//about</tt>, si usted utiliza una combinación contentType/slug. De otra manera utilice un URL apropiado, tal como `https://example.org`."
-      fixture_format: '{url}'
+    # contentlink:
+    #   type: text
+    #   label: Link
+    #   placeholder: 'contentType/slug o https://example.org/'
+    #   postfix: "Use para añadir un enlace o hipervínculo. Puede ser un enlace 'interno' como <tt>page//about</tt>, si usted utiliza una combinación contentType/slug. De otra manera utilice un URL apropiado, tal como `https://example.org`."
+    #   fixture_format: '{url}'
     slug:
       type: slug
       uses: [title]
@@ -391,7 +391,7 @@ sociales:
   fields:
     title:
       type: select
-      values: [facebook, instagram, youtube, linkedin, twitter, pinterest]
+      values: [facebook, instagram, youtube, linkedin, twitter, pinterest, whatsapp]
       class: large
       label: Título de la red social
       group: Social
@@ -402,7 +402,7 @@ sociales:
       placeholder: 'https://example.org/'
       postfix: 'Use este campo para añadir los enlaces o URL de la red social seleccionada. Esta aparecerá con su ícono correspondiente en el encabezado y el pie de página.'
       fixture_format: '{url}'
-      default: '#'
+      # default: '#'
       requiered: true
   show_on_dashboard: false
   viewless: true
@@ -485,7 +485,7 @@ practicas:
       class: large
       label: Título de práctica
       group: Areas de Practica
-    viewhome: 
+    viewhome:
       type: checkbox
       label: ¿Aparece en el listado de la página de inicio?
       default: false
@@ -511,3 +511,64 @@ practicas:
   listing_template: practice_list.twig
   listing_records: 20
   listing_sort: title
+
+abogados:
+  name: Abogados
+  singular_name: Abogado
+  title_format: '{name} ({description})'
+  fields:
+    name:
+      type: text
+      class: large
+      variant: inline
+      label: Nombre
+      fixture_format: '{name}'
+      group: Abogado
+    description:
+      type: text
+      variant: inline
+      label: Descripción
+      postfix: Descripción de la persona, título o posición en la firma
+      fixture_format: '{jobTitle}'
+    image:
+      type: image
+      label: Imágen
+    content:
+      type: textarea
+      label: Contenido
+    sociales:
+      type: collection
+      label: Redes sociales
+      group: Redes sociales
+      limit: 5
+      fields:
+        contentset:
+          type: set
+          label: Set de Red Social
+          fields:
+            title:
+              type: select
+              values: [facebook, instagram, youtube, linkedin, twitter, pinterest, whatsapp]
+              class: large
+              label: Título de la red social
+              group: Social
+              # required: true
+            contentlink:
+              type: text
+              label: Link
+              placeholder: 'https://example.org/'
+              postfix: 'Use este campo para añadir los enlaces o URL de la red social seleccionada. Esta aparecerá con su ícono correspondiente en el encabezado y el pie de página.'
+              fixture_format: '{url}'
+              # default: '#'
+              requiered: true
+    slug:
+      type: slug
+      uses: [name]
+      group: Meta
+  icon_one: fa:user
+  icon_many: fa:users
+  show_on_dashboard: false
+  viewless: true
+  default_status: published
+  searchable: false
+  order: title
