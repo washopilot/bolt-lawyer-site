@@ -245,7 +245,7 @@ bloques:
       type: slug
       uses: [title]
       group: Meta
-  show_on_dashboard: true
+  show_on_dashboard: false
   viewless: true
   default_status: published
   searchable: false
@@ -463,7 +463,7 @@ servicios:
       type: text
       label: Icono Tipo Icofont
       postfix: |
-        En este apartado usted puede colocar el código correspondiente a un ícono "Icofont". Por ejemplo: si desea visualizar el ícono de un edificio, su código es `building`. Puede acceder a <a href="https://icofont.com/icons" target="_blank">ICONOS ICOFONT</a> para mayor información de los íconos disponibles. 
+        En este apartado usted puede colocar el código correspondiente a un ícono "Icofont". Por ejemplo: si desea visualizar el ícono de un edificio, su código es `building`. Puede acceder a <a href="https://icofont.com/icons" target="_blank">ICONOS ICOFONT</a> para mayor información de los íconos disponibles.
     content:
       type: textarea
       label: Contenido
@@ -474,3 +474,37 @@ servicios:
   order: title
   icon_many: 'fa:concierge-bell'
   icon_one: 'fa:concierge-bell'
+
+practicas:
+  name: Practicas
+  singular_name: Practica
+  excerpt_format: '{content}'
+  fields:
+    title:
+      type: text
+      class: large
+      label: Título de práctica
+      group: Areas de Practica
+    viewhome: 
+      type: checkbox
+      label: ¿Aparece en el listado de la página de inicio?
+      default: false
+    teaser:
+      type: text
+      fixture_format: '{paragraph}'
+      label: Resumen
+    icofont:
+      type: text
+      label: Icono Tipo Icofont
+      postfix: |
+        En este apartado usted puede colocar el código correspondiente a un ícono "Icofont". Por ejemplo: si desea visualizar el ícono de un edificio, su código es `building`. Puede acceder a <a href="https://icofont.com/icons" target="_blank">ICONOS ICOFONT</a> para mayor información de los íconos disponibles.
+    content:
+      type: textarea
+      label: Contenido
+  show_on_dashboard: false
+  viewless: true
+  default_status: published
+  searchable: false
+  order: title
+  icon_many: 'fa:gavel'
+  icon_one: 'fa:gavel'

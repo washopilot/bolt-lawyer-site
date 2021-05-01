@@ -1,0 +1,33 @@
+{% setcontent block = (content) returnsingle %} 
+{% setcontent records = (contenttype) where {viewhome: '%1'} %} {# Filtra los registros que tienen el checkbox marcado como true #}
+{% dump(records) %}
+
+<section id="section-practice-areas">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="text-center">
+          <h2>{{ block | title }}</h2>
+          <div class="small-border"></div>
+        </div>
+      </div>
+      <div class="col-md-6 offset-md-3 text-center">
+        <p>{{ block | excerpt }}</p>
+      </div>
+      <div class="spacer-single"></div>
+
+      {# La siguiente rutina clasifica en columnas de 4 registros cada una de acuerdo al formato del template #}
+      {% for record in records %} 
+        {% if loop.index0 % 4 == 0 %}
+        <div class="col-md-4">
+          <ul class="ul-style-2 wow fadeInRight" data-wow-delay=".2s">
+        {% endif %}
+            <li>{{ record | title }}</li>
+        {% if loop.index0 % 4 == 3 or loop.last %}
+          </ul>
+        </div>
+        {% endif %} 
+      {% endfor %}
+    </div>
+  </div>
+</section>
