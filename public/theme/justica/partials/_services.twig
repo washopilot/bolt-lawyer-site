@@ -31,7 +31,7 @@
               </h3>
               <p>{{ record | excerpt }}</p>
               <div class="spacer20"></div>
-              <a href="#" class="btn-custom capsule">MÁS INFORMACIÓN</a>
+              <a href="{{ path('listing', { contentTypeSlug: 'practicas' }) }}" class="btn-custom capsule">MÁS INFORMACIÓN</a>
             </div>
           </div>
           <img src="{{ record|thumbnail(320, 280, fit="crop") }}" alt="" class="img-responsive" />

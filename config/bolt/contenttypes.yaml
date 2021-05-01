@@ -508,3 +508,6 @@ practicas:
   order: title
   icon_many: 'fa:gavel'
   icon_one: 'fa:gavel'
+  listing_template: practice_list.twig
+  listing_records: 20
+  listing_sort: title

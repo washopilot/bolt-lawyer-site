@@ -1,0 +1,46 @@
+{% setcontent block = 'bloque/areas-de-practica' %} 
+{% extends 'partials/_master.twig' %}
+
+{% dump(records) %}
+{% block main %}
+<!-- section begin -->
+<section id="subheader" class="text-light" data-stellar-background-ratio=".2" data-bgimage="url({{ block | image }}) top">
+  <div class="center-y relative text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <div class="spacer-single"></div>
+          <h1>{{ block | title }}</h1>
+          <p>{{ block.teaser }}</p>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- section close -->
+
+<section>
+  <div class="container">
+    <div class="row">
+      
+      {% for record in records %}
+      <div class="col-lg-4 col-md-6 mb30">
+        <div class="feature-box f-boxed style-3 text-center">
+          <i class="id-color icofont-{{- record.icofont -}}"></i>
+          <div class="text">
+            <h4>{{ record | title }}</h4>
+            {{ record | excerpt }}
+          </div>
+          <i class="wm icofont-worker"></i>
+          <div class="spacer-single"></div>
+          <!-- <a href="#" class="btn-custom btn-black">Read More</a> -->
+        </div>
+      </div>  
+      {% endfor %}
+      
+    </div>
+  </div>
+</section>
+
+{% endblock main %}

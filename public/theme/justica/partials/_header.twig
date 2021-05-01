@@ -1,32 +1,6 @@
-<!--Nav-->
-{#
-<div id="header" class="text-white fixed top-0 w-full z-30">
-  <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-4">
-    <div class="py-4 flex flex-row items-center justify-between">
-      <a href="{{ path('homepage') }}" class="text-lg font-semibold tracking-widest currentColor uppercase rounded-lg focus:outline-none focus:shadow-outline">
-        {% include 'img/logo.svg' %}
-        {{ config.get('general/sitename') }}
-      </a>
-      <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
-        <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
-          <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-          <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-        </svg>
-      </button>
-    </div>
-
-    {{ menu('main', template='partials/_menu.twig') }}
-  </div>
-
-  The progess bar is only shown on Pages and Entries {% if record.contenttype|default == 'pages' %}
-  <div id="progress" class="bg-white h-1 z-40" style="background: linear-gradient(to right, #4dc0b5 var(--scroll), transparent 0)"></div>
-  {% elseif record.contenttype|default == 'entries' %}
-  <div id="progress" class="bg-white h-1 z-40" style="background: linear-gradient(to right, #4dc0b5 var(--scroll), transparent 0)"></div>
-  {% endif %}
-</div>
-#} 
-
-{% setcontent logo_light = "bloque/logotipo-claro" %} {% setcontent logo_dark = "bloque/logotipo-oscuro" %} {% setcontent phone = "bloque/telefono-de-contacto" %} {# {% dump(logo_dark) %} #}
+{% setcontent logo_light = "bloque/logotipo-claro" %}
+{% setcontent logo_dark = "bloque/logotipo-oscuro" %}
+{% setcontent phone = "bloque/telefono-de-contacto" %}
 
 <!-- header begin -->
 <header>
@@ -37,7 +11,7 @@
           <div class="de-flex-col">
             <!-- logo begin -->
             <div id="logo">
-              <a href="/">
+              <a href="{{ path('homepage') }}">
                 {% if logo_light is not null %}
                 <img alt="logo_light.alt" class="logo" src="{{ logo_light.image }}" />
                 {% endif %} {% if logo_dark is not null %}
@@ -51,39 +25,41 @@
             <!-- mainmenu begin -->
             <ul id="mainmenu">
               <li>
-                <a href="index.html">Inicio</a>
-                <ul>
-                  <li><a href="index.html">Homepage 1</a></li>
-                  <li><a href="index-2.html">Homepage 2</a></li>
-                  <li><a href="index-3.html">Homepage 3</a></li>
-                  <li><a href="index-4.html">Homepage 4</a></li>
-                  <li><a href="index-5.html">Homepage 5</a></li>
-                </ul>
+                <a href="{{ path('homepage') }}">Inicio</a>
+                <!-- <ul>
+                  <li><a href="#">Homepage 1</a></li>
+                  <li><a href="#">Homepage 2</a></li>
+                  <li><a href="#">Homepage 3</a></li>
+                  <li><a href="#">Homepage 4</a></li>
+                  <li><a href="#">Homepage 5</a></li>
+                </ul> -->
               </li>
               <li>
-                <a href="about.html">Acerca</a>
-                <ul>
-                  <li><a href="about.html">About Us</a></li>
-                  <li><a href="team.html">The Team</a></li>
-                  <li><a href="faq.html">FAQ</a></li>
-                </ul>
+                <a href="#">Acerca</a>
+                <!-- <ul>
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">The Team</a></li>
+                  <li><a href="#">FAQ</a></li>
+                </ul> -->
               </li>
               <li>
-                <a href="practice-areas.html">Áreas de práctica</a>
-                <ul>
-                  <li><a href="practice-areas.html">Practice Areas 1</a></li>
-                  <li><a href="practice-areas-2.html">Practice Areas 2</a></li>
-                </ul>
+                <a href="{{ path('listing', { contentTypeSlug: 'practicas' }) }}">
+                  Áreas de práctica
+                </a>
+                <!-- <ul>
+                  <li><a href="#">Practice Areas 1</a></li>
+                  <li><a href="#">Practice Areas 2</a></li>
+                </ul> -->
               </li>
               <li>
-                <a href="news.html">Blog</a>
-                <ul>
-                  <li><a href="news.html">News List</a></li>
-                  <li><a href="news-single.html">News Single</a></li>
-                </ul>
+                <a href="#">Blog</a>
+                <!-- <ul>
+                  <li><a href="#">News List</a></li>
+                  <li><a href="#">News Single</a></li>
+                </ul> -->
               </li>
               <li>
-                <a href="contact.html">Contacto</a>
+                <a href="#">Contacto</a>
               </li>
               {#
               <li>
