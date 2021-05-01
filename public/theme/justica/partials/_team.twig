@@ -1,0 +1,36 @@
+{% setcontent records = (contenttype) where {viewhome: '%1'} %} {# Filtra los registros que tienen el checkbox marcado como true #}
+
+<section aria-label="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <a href="{{ path('listing', { contentTypeSlug: 'abogados' }) }}">
+          <h2>Nuestro equipo de abogados</h2>
+        </a>
+        <div class="small-border"></div>
+      </div>
+
+      {% for record in records %}
+      <div class="col-lg-4 col-md-6 col-sm-6 mb30 wow fadeInRight" data-wow-delay=".2s">
+        <div class="f-profile text-center">
+          <div class="fp-wrap f-invert">
+            <div class="fpw-overlay">
+              <div class="fpwo-wrap">
+                <div class="fpwow-icons">
+                  {% for social in record.sociales %} {# dump(social.title) #}
+                  <a href="{{ social.contentlink }}" target="_blank"><i class="fa fa-{{ social.title }} fa-lg"></i></a>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+            <div class="fpw-overlay-btm"></div>
+            <img src="{{ record.image }}" class="fp-image img-fluid" alt="" />
+          </div>
+          <h4>{{ record.name }}</h4>
+          {{ record.description }}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

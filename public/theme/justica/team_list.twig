@@ -1,0 +1,51 @@
+{% extends 'partials/_master.twig' %} {# dump(records) #} {% block main %}
+<!-- section begin -->
+<section id="subheader" class="text-light" data-bgcolor="#111111">
+  <div class="center-y relative text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <div class="spacer-single"></div>
+          <h1>Equipo de abogados</h1>
+          <p>Reputación. Respeto. Resultados</p>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- section close -->
+
+{% for record in records %}
+<section data-bgcolor="#111111" class="text-light">
+  <div class="container">
+    <div class="row align-items-center">
+    
+      {% if loop.index % 2 == 0 %}
+      <div class="col-lg-5 offset-md-7">
+      {% else %}
+      <div class="col-lg-5">
+      {% endif %}
+
+        <span class="p-title">{{ record.description }}</span>
+        <br />
+        <h2>{{ record.name }}</h2>
+        <p>{{ record.content }}</p>
+        <div class="social-icons s1">
+          {% for social in record.sociales %} 
+          {# dump(social.title) #}
+          <a href="{{ social.contentlink }}" target="_blank"><i class="fa fa-{{ social.title }} fa-lg"></i></a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  {% if loop.index % 2 == 0 %}
+  <div class="image-container col-md-6" data-bgimage="url({{ record.image }}) center"></div>
+  {% else %}
+  <div class="image-container col-md-6 pos-right" data-bgimage="url({{ record.image }}) center"></div>
+  {% endif %}
+
+</section>
+{% endfor %} {% endblock main %}

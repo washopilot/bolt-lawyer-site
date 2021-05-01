@@ -395,7 +395,7 @@ sociales:
       class: large
       label: Título de la red social
       group: Social
-      # required: true
+      required: true
     contentlink:
       type: text
       label: Link
@@ -530,6 +530,10 @@ abogados:
       label: Descripción
       postfix: Descripción de la persona, título o posición en la firma
       fixture_format: '{jobTitle}'
+    viewhome:
+      type: checkbox
+      label: ¿Aparece en el listado de la página de inicio?
+      default: false
     image:
       type: image
       label: Imágen
@@ -552,7 +556,7 @@ abogados:
               class: large
               label: Título de la red social
               group: Social
-              # required: true
+              required: true
             contentlink:
               type: text
               label: Link
@@ -572,3 +576,5 @@ abogados:
   default_status: published
   searchable: false
   order: title
+  listing_template: team_list.twig
+  listing_records: 10

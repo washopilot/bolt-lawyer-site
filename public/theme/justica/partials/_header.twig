@@ -1,6 +1,4 @@
-{% setcontent logo_light = "bloque/logotipo-claro" %}
-{% setcontent logo_dark = "bloque/logotipo-oscuro" %}
-{% setcontent phone = "bloque/telefono-de-contacto" %}
+{% setcontent logo_light = "bloque/logotipo-claro" %} {% setcontent logo_dark = "bloque/logotipo-oscuro" %} {% setcontent phone = "bloque/telefono-de-contacto" %}
 
 <!-- header begin -->
 <header>
@@ -35,7 +33,7 @@
                 </ul> -->
               </li>
               <li>
-                <a href="#">Acerca</a>
+                <a href="{{ path('listing', { contentTypeSlug: 'abogados' }) }}">Abogados</a>
                 <!-- <ul>
                   <li><a href="#">About Us</a></li>
                   <li><a href="#">The Team</a></li>
@@ -43,9 +41,7 @@
                 </ul> -->
               </li>
               <li>
-                <a href="{{ path('listing', { contentTypeSlug: 'practicas' }) }}">
-                  Áreas de práctica
-                </a>
+                <a href="{{ path('listing', { contentTypeSlug: 'practicas' }) }}">Áreas de práctica </a>
                 <!-- <ul>
                   <li><a href="#">Practice Areas 1</a></li>
                   <li><a href="#">Practice Areas 2</a></li>
