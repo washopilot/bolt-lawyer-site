@@ -1,3 +1,4 @@
+{% setcontent block = (content) returnsingle %} 
 {% setcontent records = (contenttype) where {viewhome: '%1'} %} {# Filtra los registros que tienen el checkbox marcado como true #}
 
 <section aria-label="section">
@@ -5,13 +6,13 @@
     <div class="row">
       <div class="col-md-12 text-center">
         <a href="{{ path('listing', { contentTypeSlug: 'abogados' }) }}">
-          <h2>Nuestro equipo de abogados</h2>
+          <h2>{{ block | title }}</h2>
         </a>
         <div class="small-border"></div>
       </div>
 
       {% for record in records %}
-      <div class="col-lg-4 col-md-6 col-sm-6 mb30 wow fadeInRight" data-wow-delay=".2s">
+      <div class="col-lg-4 col-md-6 col-sm-6 mb30 wow fadeInRight" data-wow-delay="{{ loop.index * 0.2 ~ 's'}}">
         <div class="f-profile text-center">
           <div class="fp-wrap f-invert">
             <div class="fpw-overlay">

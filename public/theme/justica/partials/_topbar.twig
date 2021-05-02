@@ -1,4 +1,4 @@
-{% setcontent socials = "sociales" latest limit 6 %} {# -- TopBar -- #}
+{% setcontent socials = "sociales" latest limit 7 %} {# -- TopBar -- #}
 
 <div id="topbar" class="topbar-noborder">
   <div class="container">
@@ -6,21 +6,21 @@
       <span class="topbar-widget tb-social">
         {% for social in socials %}
         <a href="{{ social.contentlink }}" target="_blank">
-          <i class="fa fa-{{ social | title }}"></i>
+          <i class="fa fa-{{- social | title }}"></i>
         </a>
         {% endfor %}
       </span>
     </div>
     <div class="topbar-right">
       <div class="topbar-right">
-        <span class="topbar-widget">
+        {# <span class="topbar-widget">
           <a href="/">Privacy policy</a>
         </span>
         <span class="topbar-widget">
           <a href="/">Request Quote</a>
-        </span>
+        </span> #}
         <span class="topbar-widget">
-          <a href="/">FAQ</a>
+          <a href="/">PREGUNTAS FRECUENTES</a>
         </span>
       </div>
     </div>

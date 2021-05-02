@@ -18,11 +18,11 @@
       </div>
       <div class="spacer-single"></div>
 
-      {# La siguiente rutina clasifica en columnas de 4 registros cada una de acuerdo al formato del template #}
+      {# La siguiente rutina clasifica en columnas de 3 registros cada una de acuerdo al formato del template #}
       {% for record in records %} 
         {% if loop.index0 % 3 == 0 %}
         <div class="col-md-4">
-          <ul class="ul-style-2 wow fadeInRight" data-wow-delay=".2s">
+          <ul class="ul-style-2 wow fadeInRight" data-wow-delay="{{ loop.index * 0.2 ~ 's'}}">
         {% endif %}
             <li>{{ record | title }}</li>
         {% if loop.index0 % 3 == 2 or loop.last %}

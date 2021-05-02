@@ -1,40 +1,78 @@
-<!--Footer-->
-<footer class="bg-white text-gray-700 body-font border-b">
-	<div class="container px-5 py-24 mx-auto">
-		<div class="flex flex-wrap md:text-left text-center order-first">
+{% setcontent logo = 'bloque/logotipo-claro' %} 
+{% setcontent address = 'bloque/direccion' %}
+{% setcontent phone = 'bloque/telefono-de-contacto' %}
+{% setcontent email = 'bloque/correo-electronico' %}
+{% setcontent practice_areas = 'practicas' where {viewhome: '%1'} %} {# filtro #}
+{% setcontent socials = "sociales" latest limit 7 %}
 
-			{% include 'partials/_latest_few_of_everything.twig' %}
-
-			<div class="lg:w-1/4 md:w-1/2 w-full px-4">
-				<h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">SEARCH</h2>
-				<div class="flex xl:flex-no-wrap md:flex-no-wrap lg:flex-wrap flex-wrap justify-center md:justify-start">
-					<form method="get" action="{{ path('search') }}" enctype="text/plain">
-						<input class="w-30 bg-gray-100 rounded xl:mr-4 lg:mr-0 sm:mr-4 mr-2 border border-gray-400 focus:outline-none focus:border-indigo-500 text-base py-2 px-4"
-							   value="{{ search|default|escape }}" placeholder="{{ __('general.phrase.search-ellipsis') }}"
-							   type="search" name="search">
-						<button class="lg:mt-2 xl:mt-0 flex-shrink-0 inline-flex text-white gradient border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
-							{{ __('action.search') }}
-						</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="bg-gray-200">
-		<div class="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
-			<a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-				{% include 'img/logo.svg' %}
-				<span class="ml-3 text-xl">{{ config.get('general/sitename') }}</span>
-			</a>
-
-			<p class="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4">© {{ "now"|date('Y') }} —
-				<a href="https://boltcms.io" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">Built with Bolt</a>
-			</p>
-
-			<span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-				{% include 'partials/_socials.twig' %}
-			</span>
-		</div>
-	</div>
+<a href="#" id="back-to-top"></a>
+<!-- footer begin -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="widget">
+          <a href="index.html"><img alt="" class="img-fluid mb20" src="{{ logo.image }}" /></a>
+          <address class="s1">
+            <span><i class="id-color fa fa-map-marker fa-lg"></i>{{ address | excerpt }}</span>
+            <span><i class="id-color fa fa-phone fa-lg"></i>{{ phone | excerpt }}</span>
+            <span
+              ><i class="id-color fa fa-envelope-o fa-lg"></i><a href="mailto:contact@example.com">{{ email | excerpt }}</a></span
+            >
+            {# <span><i class="id-color fa fa-file-pdf-o fa-lg"></i><a href="#">Download Brochure</a></span> #}
+          </address>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h5 class="id-color mb20">Áreas de Práctica</h5>
+        <ul class="ul-style-2">
+          {% for practice_area in practice_areas %}
+          <li>{{ practice_area | title }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <div class="widget">
+          <h5 class="id-color">Grupo de noticias</h5>
+          <p>Registarte en nuestro Grupo de Noticias para recibir las últimas novedades, actualizaciones y ofertas en tu buzón.</p>
+          <form action="blank.php" class="row" id="form_subscribe" method="post" name="form_subscribe">
+            <div class="col text-center">
+              <input class="form-control" id="name_1" name="name_1" placeholder="Ingrese su correo electrónico" type="text" /> <a href="#" id="btn-submit"><i class="fa fa-long-arrow-right"></i></a>
+              <div class="clearfix"></div>
+            </div>
+          </form>
+          <div class="spacer-10"></div>
+          <small>Su correo eléctrónico está seguro con nostros. No remitimos spam</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="subfooter">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="de-flex">
+            <div class="de-flex-col">&copy; Copyright 2021 - Con el soporte tecnológico de&nbsp;<a href="http://jlgranda.com" target="_blank" title="Tú negocio en web en 1 día">jlgranda.com</a></div>
+            <div class="de-flex-col">
+              <div class="social-icons">
+                {% for social in socials %}
+                <a href="{{ social.contentlink }}" target="_blank">
+                  <i class="fa fa-{{- social | title }} fa-lg"></i>
+                </a>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>
+<!-- footer close -->
+<div id="preloader">
+  <div class="spinner">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+  </div>
+</div>
