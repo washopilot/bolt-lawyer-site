@@ -611,9 +611,9 @@ entradas:
   taxonomy: [etiquetas]
   record_template: entry.twig
   listing_template: listing.twig
-  listing_records: 10
+  # listing_records: 6
   default_status: published
   order: -publishedAt
-  records_per_page: 10
+  # records_per_page: 6
   icon_many: 'fa:file-alt'
   icon_one: 'fa:file-alt'

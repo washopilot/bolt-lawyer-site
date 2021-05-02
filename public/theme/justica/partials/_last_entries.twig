@@ -1,25 +1,15 @@
-{% extends 'partials/_master.twig' %} {% dump(records|last) %} {% block main %}
-<!-- section begin -->
-<section id="subheader" class="text-light" data-stellar-background-ratio=".2" data-bgimage="url({{records|last.image}}) top">
-  <div class="center-y relative text-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          {% if taxonomy is defined %} {% dump(taxonomy) %}
-          <h1>{{ 'Resultados para: ' ~ slug }}</h1>
-          {% else %}
-          <h1>{{records|last.contentType}}</h1>
-          {% endif %}
-          <p>{{ config.get('general/payoff') }}</p>
-        </div>
-        <div class="clearfix"></div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- section close -->
+{% setcontent records = (contenttype) latest limit 3 %}
+
 <section aria-label="section">
   <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="text-center">
+          <h2>Publicaciones recientes</h2>
+          <div class="small-border"></div>
+        </div>
+      </div>
+    </div>
     <div class="row">
       {% for record in records %}
       <div class="col-lg-4 col-md-6 mb30">
@@ -48,25 +38,6 @@
         </div>
       </div>
       {% endfor %}
-
-      <div class="spacer-single"></div>
-      <ul class="pagination">
-        {{ pager(records, template='partials/_pager.twig') }}
-
-        {#}
-        <li><a href="#">Prev</a></li>
-        <li class="active"><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#">Next</a></li>
-        #}
-
-
-      </ul>
     </div>
   </div>
 </section>
-
-{% endblock main %}

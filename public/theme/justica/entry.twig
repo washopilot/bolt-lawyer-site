@@ -1,7 +1,7 @@
 {% extends 'partials/_master.twig' %} 
 {% setcontent last_blogs = 'entradas' latest limit 4 %}
 {% set author = record|related('abogados')|first %}
-{% dump(record) %} 
+{% dump(record.video) %} 
 
 {% block main %}
 
@@ -12,6 +12,7 @@
       <div class="row">
         <div class="col-md-12 text-center">
           <h1>ENTRADA DE BLOG</h1>
+          <p>{{ config.get('general/payoff') }}</p>
         </div>
         <div class="clearfix"></div>
       </div>
@@ -29,7 +30,9 @@
           <div class="small-border" style="margin-left: 0"></div>
           <img alt="" src="{{ record.image }}" class="img-fullwidth" />
           <div class="post-text">
-            {{ record.body }}
+            {% with { 'record': record, 'exclude': [record|image.fieldname|default()] } %}
+            {{ block('sub_fields', 'helpers/_fields.twig') }}
+            {% endwith %}
             <span class="post-date">{{record.publishedAt|localdate(format='F j, Y H:i', locale='es')}}</span>
             <p>{{ author.name }}</p>
             <!-- <span class="post-comment">1</span>
