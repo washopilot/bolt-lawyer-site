@@ -385,32 +385,32 @@ bloques:
 #    taxonomy: [ tags ]
 #    records_per_page: 20
 
-sociales:
-  name: Sociales
-  singular_name: social
-  fields:
-    title:
-      type: select
-      values: [facebook, instagram, youtube, linkedin, twitter, pinterest, whatsapp]
-      class: large
-      label: Título de la red social
-      group: Social
-      required: true
-    contentlink:
-      type: text
-      label: Link
-      placeholder: 'https://example.org/'
-      postfix: 'Use este campo para añadir los enlaces o URL de la red social seleccionada. Esta aparecerá con su ícono correspondiente en el encabezado y el pie de página.'
-      fixture_format: '{url}'
-      # default: '#'
-      requiered: true
-  show_on_dashboard: false
-  viewless: true
-  default_status: published
-  searchable: false
-  order: title
-  icon_many: 'fa:people-arrows'
-  icon_one: 'fa:people-arrows'
+# sociales:
+#   name: Sociales
+#   singular_name: social
+#   fields:
+#     title:
+#       type: select
+#       values: [facebook, instagram, youtube, linkedin, twitter, pinterest, whatsapp]
+#       class: large
+#       label: Título de la red social
+#       group: Social
+#       required: true
+#     contentlink:
+#       type: text
+#       label: Link
+#       placeholder: 'https://example.org/'
+#       postfix: 'Use este campo para añadir los enlaces o URL de la red social seleccionada. Esta aparecerá con su ícono correspondiente en el encabezado y el pie de página.'
+#       fixture_format: '{url}'
+#       # default: '#'
+#       requiered: true
+#   show_on_dashboard: false
+#   viewless: true
+#   default_status: published
+#   searchable: false
+#   order: title
+#   icon_many: 'fa:people-arrows'
+#   icon_one: 'fa:people-arrows'
 
 presentaciones:
   name: Presentaciones

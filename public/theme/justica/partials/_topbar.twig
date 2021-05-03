@@ -1,24 +1,29 @@
-{% setcontent socials = "sociales" latest limit 7 %} {# -- TopBar -- #}
+{% set socials = config.get('theme/socials') %} 
+{# dump(socials) #}
 
 <div id="topbar" class="topbar-noborder">
   <div class="container">
     <div class="topbar-left sm-hide">
       <span class="topbar-widget tb-social">
-        {% for social in socials %}
-        <a href="{{ social.contentlink }}" target="_blank">
-          <i class="fa fa-{{- social | title }}"></i>
+        {% for key,social in socials %} 
+        {% if social is not null %}
+        <a href="{{ social }}" target="_blank">
+          <i class="fa fa-{{- key }}"></i>
         </a>
+        {% endif %}
         {% endfor %}
       </span>
     </div>
     <div class="topbar-right">
       <div class="topbar-right">
-        {# <span class="topbar-widget">
+        {#
+        <span class="topbar-widget">
           <a href="/">Privacy policy</a>
         </span>
         <span class="topbar-widget">
           <a href="/">Request Quote</a>
-        </span> #}
+        </span>
+        #}
         <span class="topbar-widget">
           <a href="/">PREGUNTAS FRECUENTES</a>
         </span>

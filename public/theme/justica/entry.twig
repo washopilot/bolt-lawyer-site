@@ -1,7 +1,7 @@
-{% extends 'partials/_master.twig' %} 
 {% setcontent last_blogs = 'entradas' latest limit 4 %}
 {% set author = record|related('abogados')|first %}
-{% dump(record.video) %} 
+{# dump(record.video) #} 
+{% extends 'partials/_master.twig' %} 
 
 {% block main %}
 

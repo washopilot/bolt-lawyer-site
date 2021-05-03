@@ -1,4 +1,7 @@
-{% extends 'partials/_master.twig' %} {% dump(records|last) %} {% block main %}
+{% extends 'partials/_master.twig' %} 
+{# dump(records|last) #} 
+
+{% block main %}
 <!-- section begin -->
 <section id="subheader" class="text-light" data-stellar-background-ratio=".2" data-bgimage="url({{records|last.image}}) top">
   <div class="center-y relative text-center">

@@ -1,9 +1,16 @@
 {% setcontent logo = 'bloque/logotipo-claro' %} 
+{% setcontent practice_areas = 'practicas' where {viewhome: '%1'} %} {# filtro #}
+
+{% set location = config.get('theme/location') %} 
+{# dump(location['map_query']) #}
+
+{#}
 {% setcontent address = 'bloque/direccion' %}
 {% setcontent phone = 'bloque/telefono-de-contacto' %}
 {% setcontent email = 'bloque/correo-electronico' %}
-{% setcontent practice_areas = 'practicas' where {viewhome: '%1'} %} {# filtro #}
-{% setcontent socials = "sociales" latest limit 7 %}
+#}
+
+{% set socials = config.get('theme/socials') %} 
 
 <a href="#" id="back-to-top"></a>
 <!-- footer begin -->
@@ -14,10 +21,10 @@
         <div class="widget">
           <a href="index.html"><img alt="" class="img-fluid mb20" src="{{ logo.image }}" /></a>
           <address class="s1">
-            <span><i class="id-color fa fa-map-marker fa-lg"></i>{{ address | excerpt }}</span>
-            <span><i class="id-color fa fa-phone fa-lg"></i>{{ phone | excerpt }}</span>
+            <span><i class="id-color fa fa-map-marker fa-lg"></i>{{ location['address'] }}</span>
+            <span><i class="id-color fa fa-phone fa-lg"></i>{{ location['phone'] }}</span>
             <span
-              ><i class="id-color fa fa-envelope-o fa-lg"></i><a href="mailto:contact@example.com">{{ email | excerpt }}</a></span
+              ><i class="id-color fa fa-envelope-o fa-lg"></i><a href="mailto:contact@example.com">{{ location['email'] }}</a></span
             >
             {# <span><i class="id-color fa fa-file-pdf-o fa-lg"></i><a href="#">Download Brochure</a></span> #}
           </address>
@@ -55,10 +62,12 @@
             <div class="de-flex-col">&copy; Copyright 2021 - Con el soporte tecnológico de&nbsp;<a href="http://jlgranda.com" target="_blank" title="Tú negocio en web en 1 día">jlgranda.com</a></div>
             <div class="de-flex-col">
               <div class="social-icons">
-                {% for social in socials %}
-                <a href="{{ social.contentlink }}" target="_blank">
-                  <i class="fa fa-{{- social | title }} fa-lg"></i>
+                {% for key,social in socials %} 
+                {% if social is not null %}
+                <a href="{{ social }}" target="_blank">
+                  <i class="fa fa-{{- key }}"></i>
                 </a>
+                {% endif %}
                 {% endfor %}
               </div>
             </div>

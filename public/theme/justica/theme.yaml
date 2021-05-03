@@ -2,15 +2,16 @@
 location:
     map_query: "Two Kings, the Hague"
     address: |
-        Prins Hendrikstraat 91
-        2518 HL The Hague
-        Netherlands
+        Aztecas 13149 y Eugenio Espejo
+        Loja - Ecuador
     email: support@example.org
-    phone: "+31 1-123456789"
+    phone: "(07) 2574599"
 
 socials:
     facebook: ~
     twitter: https://twitter.com/twokings
     instagram: https://www.instagram.com/bopp
-    linkedin: https://www.linkedin.com/company/two-kings
+    linkedin: https://ec.linkedin.com/
     youtube: ~
+    whatsapp: https://web.whatsapp.com/
+    pinterest: https://www.pinterest.es/

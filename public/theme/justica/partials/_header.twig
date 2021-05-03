@@ -1,4 +1,6 @@
-{% setcontent logo_light = "bloque/logotipo-claro" %} {% setcontent logo_dark = "bloque/logotipo-oscuro" %} {% setcontent phone = "bloque/telefono-de-contacto" %}
+{% setcontent logo_light = "bloque/logotipo-claro" %} 
+{% setcontent logo_dark = "bloque/logotipo-oscuro" %} 
+{% set location = config.get('theme/location') %} 
 
 <!-- header begin -->
 <header>
@@ -79,10 +81,10 @@
           </div>
           <div class="de-flex-col">
             <div class="h-phone md-hide">
-              {% if phone is not null %}
+              {% if location['phone'] is not null %}
               <span>¿Necesita&nbsp;Ayuda?</span>
               <i class="fa fa-phone"></i>
-              {{ phone.content }}
+              {{ location['phone'] }}
               {% endif %}
             </div>
             <span id="menu-btn"></span>
