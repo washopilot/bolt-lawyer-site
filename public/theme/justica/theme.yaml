@@ -1,6 +1,6 @@
 # location for the embedded map
 location:
-    map_query: "Two Kings, the Hague"
+    map_query: "-4.0047136755010655, -79.20111568606583"
     address: |
         Aztecas 13149 y Eugenio Espejo
         Loja - Ecuador

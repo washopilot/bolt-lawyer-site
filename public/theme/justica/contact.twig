@@ -1,8 +1,4 @@
-{% setcontent contactanos = 'bloque/contactanos' %} 
-
-{% extends 'partials/_master.twig' %} 
-
-{% block main %}
+{% setcontent contactanos = 'bloque/contactanos' %} {% extends 'partials/_master.twig' %} {% block main %}
 <!-- section begin -->
 <section id="subheader" class="text-light" data-stellar-background-ratio=".2" data-bgimage="url({{ contactanos.image }}) top">
   <div class="center-y relative text-center">
@@ -25,11 +21,13 @@
       {% for record in records %}
       <div class="col-md-4">
         <img src="{{ record.image }}" alt="" class="img-fluid mb30" />
-        <h3>{{ record|title }}</h3>
+        <h3>{{ record | title }}</h3>
         <address class="s1">
           <span><i class="id-color fa fa-map-marker fa-lg"></i>{{ record.address }}</span>
           <span><i class="id-color fa fa-phone fa-lg"></i>{{ record.phone }}</span>
-          <span><i class="id-color fa fa-envelope-o fa-lg"></i><a href="mailto:{{ record.email }}">{{ record.email }}</a></span>
+          <span
+            ><i class="id-color fa fa-envelope-o fa-lg"></i><a href="mailto:{{ record.email }}">{{ record.email }}</a></span
+          >
           <span><i class="id-color fa fa-file-pdf-o fa-lg"></i><a href="{{ record.brochure }}">Descargar folleto</a></span>
         </address>
       </div>
@@ -38,6 +36,20 @@
   </div>
 </section>
 
-{% include 'partials/_banner.twig' %}
+<section aria-label="section" class="text-light" data-bgcolor="#111111">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-8 mb-sm-30">
+        <h3>¿Dónde estamos?</h3>
+        <iframe width="100%" height="400" frameborder="0" title="map" marginheight="0"
+        marginwidth="0" scrolling="no"
+        src="https://maps.google.com/maps?width=100%&height=100%&hl=es&q={{ config.get('theme/location/map_query')|url_encode }}&ie=UTF8&t=&z=14&output=embed&z=18"
+        style="filter: grayscale(0.5) contrast(1) opacity(0.8);"></iframe>
+      </div>
+      <div class="col-lg-2"></div>
+    </div>
+  </div>
+</section>
 
-{% endblock main %}
+{% include 'partials/_banner.twig' %} {% endblock main %}
