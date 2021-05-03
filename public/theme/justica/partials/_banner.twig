@@ -1,0 +1,22 @@
+{% setcontent banner = 'bloque/bienvenido' %}
+
+<section data-bgimage="url({{ banner.image }}) center" class="text-light" data-stellar-background-ratio=".2">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- <div class="col-lg-4 col-md-12 wow fadeInRight" data-wow-delay=".2s">
+        <div class="de_count ultra-big s2 border-light text-center">
+          <h3 class="timer" data-to="20" data-speed="1000">20</h3>
+          <span class="id-color">Years of Experience</span>
+        </div>
+      </div> -->
+      <div class="col-lg-6 p-lg-6 mb-sm-30 wow fadeInRight" data-wow-delay=".4s">
+        <span class="p-title">{{ banner | title }}</span
+        ><br />
+        <h2>{{ banner.teaser }}</h2>
+      </div>
+      <div class="col-lg-4 wow fadeInRight" data-wow-delay=".6s">
+        <p>{{ banner | excerpt }}</p>
+      </div>
+    </div>
+  </div>
+</section>

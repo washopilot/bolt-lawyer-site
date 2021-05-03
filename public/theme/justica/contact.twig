@@ -1,0 +1,43 @@
+{% setcontent contactanos = 'bloque/contactanos' %} 
+
+{% extends 'partials/_master.twig' %} 
+
+{% block main %}
+<!-- section begin -->
+<section id="subheader" class="text-light" data-stellar-background-ratio=".2" data-bgimage="url({{ contactanos.image }}) top">
+  <div class="center-y relative text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h1>{{ contactanos | title }}</h1>
+          <p>{{ contactanos | excerpt }}</p>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- section close -->
+
+<section aria-label="section">
+  <div class="container">
+    <div class="row">
+      {% for record in records %}
+      <div class="col-md-4">
+        <img src="{{ record.image }}" alt="" class="img-fluid mb30" />
+        <h3>{{ record|title }}</h3>
+        <address class="s1">
+          <span><i class="id-color fa fa-map-marker fa-lg"></i>{{ record.address }}</span>
+          <span><i class="id-color fa fa-phone fa-lg"></i>{{ record.phone }}</span>
+          <span><i class="id-color fa fa-envelope-o fa-lg"></i><a href="mailto:{{ record.email }}">{{ record.email }}</a></span>
+          <span><i class="id-color fa fa-file-pdf-o fa-lg"></i><a href="{{ record.brochure }}">Descargar folleto</a></span>
+        </address>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include 'partials/_banner.twig' %}
+
+{% endblock main %}

@@ -617,3 +617,45 @@ entradas:
   # records_per_page: 6
   icon_many: 'fa:file-alt'
   icon_one: 'fa:file-alt'
+
+Oficinas:
+  name: Oficinas
+  singular_name: Oficina
+  fields:
+    title:
+      type: text
+      class: large
+      variant: inline
+      label: Nombre de la oficina
+      group: Contacto
+      fixture_format: '{catchPhrase}'
+    address:
+      type: text
+      variant: inline
+      fixture_format: '{bs}'
+      label: 'Dirección'
+    phone:
+      type: text
+      variant: inline
+      fixture_format: '{bs}'
+      label: 'Teléfono'
+    email:
+      type: text
+      variant: inline
+      fixture_format: '{safeEmail}'
+    brochure:
+      type: file
+      variant: inline
+      label: 'Folleto'
+      extensions: [ doc, docx, pdf ]
+    image:
+      type: image
+      label: 'Imagen'
+  show_on_dashboard: false
+  viewless: true
+  default_status: published
+  searchable: false
+  order: title
+  icon_many: 'fa:map-marker'
+  icon_one: 'fa:map-marker'
+  listing_template: contact.twig
