@@ -21,12 +21,12 @@ homepage:
         in the webbrowser, edit <code>sitename:</code> in the configuration file.
     image:
       type: image
-    introduction:
-      type: redactor
-      localize: true
-    content:
-      type: redactor
-      localize: true
+    # introduction:
+    #   type: redactor
+    #   localize: true
+    # content:
+    #   type: redactor
+    #   localize: true
     contentlink:
       type: text
       label: Link
@@ -249,7 +249,7 @@ bloques:
   viewless: true
   default_status: published
   searchable: false
-  order: title
+  order: -id
   icon_many: 'fa:cubes'
   icon_one: 'fa:cube'
 
@@ -438,7 +438,7 @@ presentaciones:
   viewless: true
   default_status: published
   searchable: false
-  order: title
+  order: -id
   icon_many: 'fa:balance-scale'
   icon_one: 'fa:balance-scale'
 
@@ -471,7 +471,7 @@ servicios:
   viewless: true
   default_status: published
   searchable: false
-  order: title
+  order: -id
   icon_many: 'fa:concierge-bell'
   icon_one: 'fa:concierge-bell'
 
@@ -505,7 +505,7 @@ practicas:
   viewless: true
   default_status: published
   searchable: false
-  order: title
+  order: -id
   icon_many: 'fa:gavel'
   icon_one: 'fa:gavel'
   listing_template: practice_list.twig
@@ -561,7 +561,7 @@ abogados:
               type: text
               label: Link
               placeholder: 'https://example.org/'
-              postfix: 'Use este campo para añadir los enlaces o URL de la red social seleccionada. Esta aparecerá con su ícono correspondiente en el encabezado y el pie de página.'
+              postfix: 'Use este campo para añadir los enlaces o URL de la red social seleccionada. Esta aparecerá con su ícono correspondiente bajo el perfil del abogado.'
               fixture_format: '{url}'
               # default: '#'
               requiered: true
@@ -575,7 +575,7 @@ abogados:
   viewless: true
   default_status: published
   searchable: false
-  order: title
+  order: -id
   listing_template: team_listing.twig
   listing_records: 10
 
@@ -613,7 +613,7 @@ entradas:
   listing_template: listing.twig
   # listing_records: 6
   default_status: published
-  order: -publishedAt
+  order: -id
   # records_per_page: 6
   icon_many: 'fa:file-alt'
   icon_one: 'fa:file-alt'
@@ -655,7 +655,7 @@ Oficinas:
   viewless: true
   default_status: published
   searchable: false
-  order: title
+  order: -id
   icon_many: 'fa:map-marker'
   icon_one: 'fa:map-marker'
   listing_template: contact.twig
