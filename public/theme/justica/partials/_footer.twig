@@ -1,5 +1,5 @@
 {% setcontent logo = 'bloque/logotipo-claro' %} 
-{% setcontent practice_areas = 'practicas' where {viewhome: '%1'} %} {# filtro #}
+{% setcontent practice_areas = 'practicas' where {viewhome: 'yes'} %} {# filtro #}
 
 {% set location = config.get('theme/location') %} 
 {# dump(location['map_query']) #}

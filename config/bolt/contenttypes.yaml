@@ -486,9 +486,14 @@ practicas:
       label: Título de práctica
       group: Areas de Practica
     viewhome:
-      type: checkbox
-      label: ¿Aparece en el listado de la página de inicio?
-      default: false
+      type: select
+      label: '¿Aparece en el listado de la página de inicio?'
+      values:
+        yes: SI
+        no: NO
+      default: no
+      variant: inline
+      required: true
     teaser:
       type: text
       fixture_format: '{paragraph}'
@@ -531,9 +536,14 @@ abogados:
       postfix: Descripción de la persona, título o posición en la firma
       fixture_format: '{jobTitle}'
     viewhome:
-      type: checkbox
-      label: ¿Aparece en el listado de la página de inicio?
-      default: false
+      type: select
+      label: '¿Aparece en el listado de la página de inicio?'
+      values:
+        yes: SI
+        no: NO
+      default: yes
+      variant: inline
+      required: true
     image:
       type: image
       label: Imágen
@@ -647,7 +657,7 @@ Oficinas:
       type: file
       variant: inline
       label: 'Folleto'
-      extensions: [ doc, docx, pdf ]
+      extensions: [doc, docx, pdf]
     image:
       type: image
       label: 'Imagen'

@@ -1,6 +1,6 @@
 {% setcontent block = 'bloque/equipo-de-abogados' %} 
 {% extends 'partials/_master.twig' %} 
-{# dump(records) #} 
+
 
 {% block main %}
 <!-- section begin -->
@@ -21,6 +21,7 @@
 <!-- section close -->
 
 {% for record in records %}
+{% dump(record.viewhome) %} 
 <section data-bgcolor="#111111" class="text-light">
   <div class="container">
     <div class="row align-items-center">
@@ -32,6 +33,7 @@
       {% endif %}
 
         <span class="p-title">{{ record.description }}</span>
+        <span class="p-title">{{ record.viewhome }}</span>
         <br />
         <h2>{{ record.name }}</h2>
         <p>{{ record.content }}</p>
