@@ -13,9 +13,9 @@
             <div id="logo">
               <a href="{{ path('homepage') }}">
                 {% if logo_light is not null %}
-                <img alt="logo_light.alt" class="logo" src="{{ logo_light.image }}" />
+                <img alt="logo_light.alt" class="logo" src="{{ logo_light.image|thumbnail(205, 40, fit="f") }}" />
                 {% endif %} {% if logo_dark is not null %}
-                <img alt="logo_dark.alt" class="logo-2" src="{{ logo_dark.image }}" />
+                <img alt="logo_dark.alt" class="logo-2" src="{{ logo_dark.image|thumbnail(205, 40, fit="f") }}" />
                 {% endif %}
               </a>
             </div>
